@@ -8,12 +8,13 @@ from typing import Sequence
 
 import torch
 import torch.nn as nn
-
+from torchinfo import summary
 __all__ = [
     "fuse_conv_and_bn",
     "fuse_model",
     "get_model_info",
     "replace_module",
+    "get_model_summary",
     "freeze_module",
     "adjust_status",
 ]
@@ -31,6 +32,10 @@ def get_model_info(model: nn.Module, tsize: Sequence[int]) -> str:
     info = "Params: {:.2f}M, Gflops: {:.2f}".format(params, flops)
     return info
 
+
+def get_model_summary(model: nn.Module, tsize: Sequence[int]) -> str:
+    stride = 64
+    return summary(model, input_size=(16,3,stride,stride))
 
 def fuse_conv_and_bn(conv: nn.Conv2d, bn: nn.BatchNorm2d) -> nn.Conv2d:
     """
