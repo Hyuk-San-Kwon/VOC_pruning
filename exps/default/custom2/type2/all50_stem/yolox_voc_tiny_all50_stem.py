@@ -21,11 +21,15 @@ class Exp(MyExp):
         self.test_size = (416, 416)
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.enable_mixup = False
+        self.max_epoch = 75
+        self.basic_lr_per_img = 0.001 / 64
+        self.warmup_epochs = 0
+
     def get_model(self):
 
-        from exps.default.custom.test.yolox import YOLOX
-        from exps.default.custom.test.yolo_pafpn import YOLOPAFPN
-        from exps.default.custom.test.yolo_head import YOLOXHead
+        from exps.default.custom2.type2.all50_stem.yolox import YOLOX
+        from exps.default.custom2.type2.all50_stem.yolo_pafpn import YOLOPAFPN
+        from exps.default.custom2.type2.all50_stem.yolo_head import YOLOXHead
         def init_yolo(M):
             for m in M.modules():
                 if isinstance(m, nn.BatchNorm2d):

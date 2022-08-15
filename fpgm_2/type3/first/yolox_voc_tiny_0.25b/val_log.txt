@@ -1,0 +1,1398 @@
+2022-08-11 10:10:17.515 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:10:17.652 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (18059), thread 'MainThread' (140386096224064):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fad983d38b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fad9f637b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7fad777cd790>
+    │      └ <function Logger.info at 0x7fae2eb91f70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7fadbe2d1700>
+                    └ <function profile at 0x7fadbb658430>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 99, in forward
+    fpn_out0 = self.lateral_conv0(x0)  # 1024->512/32
+               │                  └ tensor([[[[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    ...
+               └ YOLOPAFPN(
+                   (backbone): CSPDarknet(
+                     (stem): Focus(
+                       (conv): BaseConv(
+                         (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn):...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           ...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, eps=0.001, momen...
+           │        └ BaseConv(
+           │            (conv): Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, eps=0.001, momen...
+           └ BaseConv(
+               (conv): Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, eps=0.001, momen...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],...
+             └ <bound method Conv2d.forward of Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             │      └ Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               ...
+           │    └ <function Conv2d._conv_forward at 0x7fad9f3f1430>
+           └ Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (1, 1)
+           │ │      │      │       │     └ Conv2d(383, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 4.4821e-02]],
+           │ │      │        
+           │ │      │                 [[-4.4609e-02]],
+           │ │      │        
+           │ │      │                 [[-2.7706e-02]],
+           │ │      │        
+           │ │      │                 ...,
+           │ │      │        
+           │ │      │               ...
+           │ │      └ tensor([[[[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        ...
+           │ └ <built-in method conv2d of type object at 0x7fae0e3e09c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 383, 1, 1], expected input[1, 288, 2, 2] to have 383 channels, but got 288 channels instead
+2022-08-11 10:10:34.979 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:10:35.082 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (18294), thread 'MainThread' (140609972819776):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fe1b852f8b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fe1bf793b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7fe19792b790>
+    │      └ <function Logger.info at 0x7fe24ecedf70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7fe1de4aa700>
+                    └ <function profile at 0x7fe1db3003a0>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 99, in forward
+    fpn_out0 = self.lateral_conv0(x0)  # 1024->512/32
+               │                  └ tensor([[[[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    ...
+               └ YOLOPAFPN(
+                   (backbone): CSPDarknet(
+                     (stem): Focus(
+                       (conv): BaseConv(
+                         (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn):...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           ...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, eps=0.001, momen...
+           │        └ BaseConv(
+           │            (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, eps=0.001, momen...
+           └ BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, eps=0.001, momen...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],...
+             └ <bound method Conv2d.forward of Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             │      └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               ...
+           │    └ <function Conv2d._conv_forward at 0x7fe1bf54e430>
+           └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (1, 1)
+           │ │      │      │       │     └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 1.6248e-02]],
+           │ │      │        
+           │ │      │                 [[-2.5092e-02]],
+           │ │      │        
+           │ │      │                 [[-2.2019e-02]],
+           │ │      │        
+           │ │      │                 ...,
+           │ │      │        
+           │ │      │               ...
+           │ │      └ tensor([[[[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        ...
+           │ └ <built-in method conv2d of type object at 0x7fe22e53c9c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 384, 1, 1], expected input[1, 288, 2, 2] to have 384 channels, but got 288 channels instead
+2022-08-11 10:11:10.561 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:11:10.664 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (18793), thread 'MainThread' (140307178342208):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f9b385de8b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f9b3f842b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7f9b179de790>
+    │      └ <function Logger.info at 0x7f9bced9cf70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7f9b5e55a700>
+                    └ <function profile at 0x7f9b5b3ae310>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 99, in forward
+    fpn_out0 = self.lateral_conv0(x0)  # 1024->512/32
+               │                  └ tensor([[[[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    ...
+               └ YOLOPAFPN(
+                   (backbone): CSPDarknet(
+                     (stem): Focus(
+                       (conv): BaseConv(
+                         (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn):...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           ...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, eps=0.001, momen...
+           │        └ BaseConv(
+           │            (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, eps=0.001, momen...
+           └ BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, eps=0.001, momen...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],...
+             └ <bound method Conv2d.forward of Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             │      └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               ...
+           │    └ <function Conv2d._conv_forward at 0x7f9b3f5fc430>
+           └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (1, 1)
+           │ │      │      │       │     └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 0.0346]],
+           │ │      │        
+           │ │      │                 [[-0.0151]],
+           │ │      │        
+           │ │      │                 [[ 0.0211]],
+           │ │      │        
+           │ │      │                 ...,
+           │ │      │        
+           │ │      │                 [[ 0.0140]...
+           │ │      └ tensor([[[[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        ...
+           │ └ <built-in method conv2d of type object at 0x7f9bae5eb9c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 384, 1, 1], expected input[1, 288, 2, 2] to have 384 channels, but got 288 channels instead
+2022-08-11 10:12:57.990 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:12:58.100 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (20065), thread 'MainThread' (140131678320448):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f725bc008b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f7262e65b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7f723b003790>
+    │      └ <function Logger.info at 0x7f72f23bff70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7f7281b7b700>
+                    └ <function profile at 0x7f727e9d1310>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 99, in forward
+    fpn_out0 = self.lateral_conv0(x0)  # 1024->512/32
+               │                  └ tensor([[[[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    
+               │                             [[0., 0.],
+               │                              [0., 0.]],
+               │                    ...
+               └ YOLOPAFPN(
+                   (backbone): CSPDarknet(
+                     (stem): Focus(
+                       (conv): BaseConv(
+                         (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn):...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           ...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, eps=0.001, momen...
+           │        └ BaseConv(
+           │            (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, eps=0.001, momen...
+           └ BaseConv(
+               (conv): Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, eps=0.001, momen...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],...
+             └ <bound method Conv2d.forward of Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             │      └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               ...
+           │    └ <function Conv2d._conv_forward at 0x7f7262c1f430>
+           └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (1, 1)
+           │ │      │      │       │     └ Conv2d(384, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 0.0441]],
+           │ │      │        
+           │ │      │                 [[ 0.0219]],
+           │ │      │        
+           │ │      │                 [[-0.0345]],
+           │ │      │        
+           │ │      │                 ...,
+           │ │      │        
+           │ │      │                 [[ 0.0235]...
+           │ │      └ tensor([[[[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        ...
+           │ └ <built-in method conv2d of type object at 0x7f72d1c0e9c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 384, 1, 1], expected input[1, 288, 2, 2] to have 384 channels, but got 288 channels instead
+2022-08-11 10:14:03.837 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:14:03.938 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (20943), thread 'MainThread' (140576181765952):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fd9da3858b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fd9e15eab80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7fd9b9794790>
+    │      └ <function Logger.info at 0x7fda70b44f70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7fda002fe700>
+                    └ <function profile at 0x7fd9fd157310>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 95, in forward
+    out_features = self.backbone(input)
+                   │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+                   └ YOLOPAFPN(
+                       (backbone): CSPDarknet(
+                         (stem): Focus(
+                           (conv): BaseConv(
+                             (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method CSPDarknet.forward of CSPDarknet(
+               (stem): Focus(
+                 (conv): BaseConv(
+                   (conv): Conv2d(12, 24, kernel_si...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/darknet.py", line 184, in forward
+    x = self.dark4(x)
+        │          └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],...
+        └ CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Sequential.forward of Sequential(
+                 (0): BaseConv(
+                   (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+            │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+            └ BaseConv(
+                (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, e...
+           │        └ BaseConv(
+           │            (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, e...
+           └ BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Conv2d.forward of Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             │      └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+           │    └ <function Conv2d._conv_forward at 0x7fd9e13a4430>
+           └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (2, 2)
+           │ │      │      │       │     └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[-1.0888e-02,  1.2241e-02,  1.5120e-02],
+           │ │      │                  [-3.2932e-02, -2.6746e-02,  1.8520e-03],
+           │ │      │         ...
+           │ │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+           │ └ <built-in method conv2d of type object at 0x7fda503939c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 72, 3, 3], expected input[1, 96, 8, 8] to have 72 channels, but got 96 channels instead
+2022-08-11 10:14:44.081 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:14:44.184 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (21442), thread 'MainThread' (140546003543872):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fd2d37558b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fd2da9b8b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7fd2b2b3f790>
+    │      └ <function Logger.info at 0x7fd369f12f70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7fd2f9652700>
+                    └ <function profile at 0x7fd2f6525310>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 95, in forward
+    out_features = self.backbone(input)
+                   │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+                   └ YOLOPAFPN(
+                       (backbone): CSPDarknet(
+                         (stem): Focus(
+                           (conv): BaseConv(
+                             (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method CSPDarknet.forward of CSPDarknet(
+               (stem): Focus(
+                 (conv): BaseConv(
+                   (conv): Conv2d(12, 24, kernel_si...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/darknet.py", line 184, in forward
+    x = self.dark4(x)
+        │          └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],...
+        └ CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Sequential.forward of Sequential(
+                 (0): BaseConv(
+                   (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+            │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+            └ BaseConv(
+                (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, e...
+           │        └ BaseConv(
+           │            (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, e...
+           └ BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Conv2d.forward of Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             │      └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+           │    └ <function Conv2d._conv_forward at 0x7fd2da772430>
+           └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (2, 2)
+           │ │      │      │       │     └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 3.6502e-02,  6.6480e-03,  3.4870e-02],
+           │ │      │                  [ 2.1372e-02,  2.6029e-02, -3.7235e-02],
+           │ │      │         ...
+           │ │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+           │ └ <built-in method conv2d of type object at 0x7fd3497619c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 72, 3, 3], expected input[1, 96, 8, 8] to have 72 channels, but got 96 channels instead
+2022-08-11 10:15:42.090 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:15:42.189 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (22200), thread 'MainThread' (140000654702400):
+Traceback (most recent call last):
+
+  File "tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f53da2258b0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f53e1489b80>
+
+  File "tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7f53b9624790>
+    │      └ <function Logger.info at 0x7f54709e3f70>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7f540019e700>
+                    └ <function profile at 0x7f53fcff53a0>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/yolo_pafpn.py", line 95, in forward
+    out_features = self.backbone(input)
+                   │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],
+                   │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+                   └ YOLOPAFPN(
+                       (backbone): CSPDarknet(
+                         (stem): Focus(
+                           (conv): BaseConv(
+                             (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method CSPDarknet.forward of CSPDarknet(
+               (stem): Focus(
+                 (conv): BaseConv(
+                   (conv): Conv2d(12, 24, kernel_si...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/darknet.py", line 184, in forward
+    x = self.dark4(x)
+        │          └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],
+        │                      [0., 0., 0.,  ..., 0., 0., 0.],...
+        └ CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Sequential.forward of Sequential(
+                 (0): BaseConv(
+                   (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+            │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],
+            │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+            └ BaseConv(
+                (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom2/type3/backbone25/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],
+           │        │       │                     [0., 0., 0.,  ..., 0., 0., 0.],...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, e...
+           │        └ BaseConv(
+           │            (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, e...
+           └ BaseConv(
+               (conv): Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, e...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.],
+             │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+             └ <bound method Conv2d.forward of Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             │      └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │    │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+           │    └ <function Conv2d._conv_forward at 0x7f53e1243430>
+           └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (2, 2)
+           │ │      │      │       │     └ Conv2d(72, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 1.3674e-02, -8.3604e-03,  2.1298e-02],
+           │ │      │                  [ 1.8888e-02,  5.5816e-03,  2.5049e-02],
+           │ │      │         ...
+           │ │      └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],
+           │ │                  [0., 0., 0.,  ..., 0., 0., 0.],...
+           │ └ <built-in method conv2d of type object at 0x7f54502329c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 72, 3, 3], expected input[1, 96, 8, 8] to have 72 channels, but got 96 channels instead
+2022-08-11 10:16:46.421 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:16:46.528 | INFO     | __main__:main:83 - Model Summary: Params: 4.63M, Gflops: 5.99
+2022-08-11 10:17:30.174 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:17:30.287 | INFO     | __main__:main:83 - Model Summary: Params: 4.63M, Gflops: 5.99
+2022-08-11 10:19:52.462 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone25/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:19:52.587 | INFO     | __main__:main:83 - Model Summary: Params: 4.46M, Gflops: 5.80
+2022-08-11 10:20:26.272 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom2/type3/backbone375/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-11 10:20:26.377 | INFO     | __main__:main:83 - Model Summary: Params: 4.46M, Gflops: 5.80

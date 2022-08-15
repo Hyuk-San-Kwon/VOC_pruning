@@ -195,12 +195,12 @@ class Mask:
         for index, item in enumerate(self.model.parameters()):
             self.compress_rate[index] = 1
             self.distance_rate[index] = 1
-        for key in range(0, 174+1, 3):
+        for key in range(0, 237, 3):
             self.compress_rate[key] = rate_norm_per_layer
             self.distance_rate[key] = rate_dist_per_layer
         #self.mask_index = [x for x in range(0, 175, 3)]
-        self.mask_index = [24,27,30,33,39,45,54,57,60,63,69,75,90,93,99,102,96,
-                            105,108,111,114,117,120,123,141,159]
+        #self.mask_index = [24,27,30,33,39,45,54,57,60,63,69,75,90,93,99,102,96
+        #                    ,105,108,111,114,117,120,123,141,159]
         # different setting for  different architecture
             
 

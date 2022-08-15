@@ -1,0 +1,861 @@
+2022-07-29 00:43:39.839 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:43:39.996 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45
+2022-07-29 00:43:59.994 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:44:00.100 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45
+2022-07-29 00:44:50.600 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:44:50.600 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (6675), thread 'MainThread' (140290052872000):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7f97d2aaab30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7f97d2a0e3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7f97d2aaab30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f9742270ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7f9742c21ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7f9734ec9ee0>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 24, in get_model
+    from . import YOLOX, YOLOPAFPN, YOLOXHead
+
+ImportError: cannot import name 'YOLOX' from 'yolox.exp.default' (/workspace/tensorrt/YOLOX/yolox/exp/default/__init__.py)
+2022-07-29 00:45:37.855 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:45:37.856 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (7253), thread 'MainThread' (140552518084416):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fd4eecffb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fd4eec633a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fd4eecffb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fd45e4c4ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fd45ee76ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fd45112a040>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 24, in get_model
+    from yolox import YOLOX
+
+ImportError: cannot import name 'YOLOX' from 'yolox' (/workspace/tensorrt/YOLOX/yolox/__init__.py)
+2022-07-29 00:45:48.061 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:45:48.062 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (7425), thread 'MainThread' (140622142134080):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fe524baab30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fe524b0e3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fe524baab30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fe49436eca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fe494d21ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fe486fd4040>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 24, in get_model
+    from .yolox import YOLOX
+
+ModuleNotFoundError: No module named 'yolox.exp.default.yolox'
+2022-07-29 00:48:37.434 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:48:37.435 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9490), thread 'MainThread' (140657290946368):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fed53c2fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fed53b933a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fed53c2fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fecc33f4ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fecc3da6ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fecb605d040>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 24, in get_model
+    from .yolox import YOLOX
+
+ModuleNotFoundError: No module named 'yolox.exp.default.yolox'
+2022-07-29 00:49:48.867 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:49:48.867 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (10397), thread 'MainThread' (140226761369408):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7f891632fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7f89162933a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7f891632fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f8885af3ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7f88864a6ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7f887875a0d0>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 27, in get_model
+    from .yolox import YOLOX
+
+ModuleNotFoundError: No module named 'yolox.exp.default.yolox'
+2022-07-29 00:50:08.251 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:50:08.252 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (10637), thread 'MainThread' (140558713136960):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fd66010fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fd6600733a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fd66010fb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fd5cf8d3ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fd5d0286ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fd5c253a0d0>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 27, in get_model
+    from .yolox import YOLOX
+
+ModuleNotFoundError: No module named 'yolox.exp.default.yolox'
+2022-07-29 00:50:45.700 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:50:45.701 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (11143), thread 'MainThread' (139869271205696):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7f35da1ffb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7f35da1633a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7f35da1ffb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f35499c4ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7f354a376ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7f353c61ef70>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 27, in get_model
+    from _EXP_PATH import YOLOX
+         └ PosixPath('/workspace/tensorrt/YOLOX/exps/default/custom/original')
+
+ModuleNotFoundError: No module named '_EXP_PATH'
+2022-07-29 00:51:46.489 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:51:46.490 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (11885), thread 'MainThread' (140591718434624):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fde0f55db30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fde0f4c13a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fde0f55db30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fdd7ed22ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fdd7f6d4ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fdd7197cf70>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 27, in get_model
+    from workspace.tensorrt.YOLOX.exps.default.custom.original import YOLOX
+
+ModuleNotFoundError: No module named 'workspace'
+2022-07-29 00:53:38.308 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:53:38.308 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (13239), thread 'MainThread' (140462296426304):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fbfed2ebb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fbfed24f3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fbfed2ebb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fbf5cab0ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7fbf5d462ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fbf4f70bf70>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 31, in get_model
+    from yolox import YOLOX
+
+ImportError: cannot import name 'YOLOX' from 'yolox' (/workspace/tensorrt/YOLOX/yolox/__init__.py)
+2022-07-29 00:54:27.162 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:54:27.169 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (13846), thread 'MainThread' (139709803870016):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7f10b9218b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7f10b917c3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7f10b9218b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f10289ddca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤════════════════════════════╕
+    │            │ keys              │ values                     │
+    │            ╞═══════════════════╪═...
+    └ <function main at 0x7f102938fee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7f101b637f70>
+            └ ╒═══════════════════╤════════════════════════════╕
+              │ keys              │ values                     │
+              ╞═══════════════════╪══...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 32, in get_model
+    from yolo_pafpn import YOLOPAFPN
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolo_pafpn.py", line 8, in <module>
+    from .darknet import CSPDarknet
+
+ImportError: attempted relative import with no known parent package
+2022-07-29 00:54:41.993 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:54:42.039 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (14043), thread 'MainThread' (140392797325120):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fafbeb69b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fafbeacd3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fafbeb69b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7faf2e32eca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7faf2ece0ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7faf20f88f70>
+            └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 46, in get_model
+    self.model.apply(init_yolo)
+    │    │     │     └ <function Exp.get_model.<locals>.init_yolo at 0x7faf20fa93a0>
+    │    │     └ <function Module.apply at 0x7faf2ede2dc0>
+    │    └ YOLOX(
+    │        (backbone): YOLOPAFPN(
+    │          (backbone): CSPDarknet(
+    │            (stem): Focus(
+    │              (conv): BaseConv(
+    │                (conv): ...
+    └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7faf20fa93a0>
+    │      └ <function Module.apply at 0x7faf2ede2dc0>
+    └ YOLOPAFPN(
+        (backbone): CSPDarknet(
+          (stem): Focus(
+            (conv): BaseConv(
+              (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7faf20fa93a0>
+    │      └ <function Module.apply at 0x7faf2ede2dc0>
+    └ CSPDarknet(
+        (stem): Focus(
+          (conv): BaseConv(
+            (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7faf20fa93a0>
+    │      └ <function Module.apply at 0x7faf2ede2dc0>
+    └ Focus(
+        (conv): BaseConv(
+          (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn)...
+  [Previous line repeated 2 more times]
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 669, in apply
+    fn(self)
+    │  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    └ <function Exp.get_model.<locals>.init_yolo at 0x7faf20fa93a0>
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 36, in init_yolo
+    if isinstance(m, nn.BatchNorm2d):
+                  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+
+NameError: name 'nn' is not defined
+2022-07-29 00:54:52.707 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:54:52.751 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (14208), thread 'MainThread' (139946396817216):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7f47cf2b6b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7f47cf21a3a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7f47cf2b6b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7f473ea7aca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f473f42dee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7f47316e10d0>
+            └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 45, in get_model
+    self.model.apply(init_yolo)
+    │    │     │     └ <function Exp.get_model.<locals>.init_yolo at 0x7f47316f5430>
+    │    │     └ <function Module.apply at 0x7f473f52edc0>
+    │    └ YOLOX(
+    │        (backbone): YOLOPAFPN(
+    │          (backbone): CSPDarknet(
+    │            (stem): Focus(
+    │              (conv): BaseConv(
+    │                (conv): ...
+    └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7f47316f5430>
+    │      └ <function Module.apply at 0x7f473f52edc0>
+    └ YOLOPAFPN(
+        (backbone): CSPDarknet(
+          (stem): Focus(
+            (conv): BaseConv(
+              (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7f47316f5430>
+    │      └ <function Module.apply at 0x7f473f52edc0>
+    └ CSPDarknet(
+        (stem): Focus(
+          (conv): BaseConv(
+            (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7f47316f5430>
+    │      └ <function Module.apply at 0x7f473f52edc0>
+    └ Focus(
+        (conv): BaseConv(
+          (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn)...
+  [Previous line repeated 2 more times]
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 669, in apply
+    fn(self)
+    │  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    └ <function Exp.get_model.<locals>.init_yolo at 0x7f47316f5430>
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 35, in init_yolo
+    if isinstance(m, nn.BatchNorm2d):
+                  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+
+NameError: name 'nn' is not defined
+2022-07-29 00:54:57.732 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:54:57.776 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (14293), thread 'MainThread' (140518951872320):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fcd1e1c3b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fcd1e1273a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fcd1e1c3b30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fcc8d989ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fcc8e33aee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 82, in main
+    model = exp.get_model()
+            │   └ <function Exp.get_model at 0x7fcc805ee0d0>
+            └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 42, in get_model
+    self.model.apply(init_yolo)
+    │    │     │     └ <function Exp.get_model.<locals>.init_yolo at 0x7fcc806023a0>
+    │    │     └ <function Module.apply at 0x7fcc8e43ddc0>
+    │    └ YOLOX(
+    │        (backbone): YOLOPAFPN(
+    │          (backbone): CSPDarknet(
+    │            (stem): Focus(
+    │              (conv): BaseConv(
+    │                (conv): ...
+    └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7fcc806023a0>
+    │      └ <function Module.apply at 0x7fcc8e43ddc0>
+    └ YOLOPAFPN(
+        (backbone): CSPDarknet(
+          (stem): Focus(
+            (conv): BaseConv(
+              (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7fcc806023a0>
+    │      └ <function Module.apply at 0x7fcc8e43ddc0>
+    └ CSPDarknet(
+        (stem): Focus(
+          (conv): BaseConv(
+            (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 668, in apply
+    module.apply(fn)
+    │      │     └ <function Exp.get_model.<locals>.init_yolo at 0x7fcc806023a0>
+    │      └ <function Module.apply at 0x7fcc8e43ddc0>
+    └ Focus(
+        (conv): BaseConv(
+          (conv): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn)...
+  [Previous line repeated 2 more times]
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 669, in apply
+    fn(self)
+    │  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    └ <function Exp.get_model.<locals>.init_yolo at 0x7fcc806023a0>
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/original/yolox_voc_tiny.py", line 32, in init_yolo
+    if isinstance(m, nn.BatchNorm2d):
+                  └ Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+
+NameError: name 'nn' is not defined
+2022-07-29 00:55:06.420 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 00:55:06.557 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45
+2022-07-29 01:05:01.351 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:05:01.460 | INFO     | __main__:main:83 - Model Summary: Params: 4.86M, Gflops: 6.24
+2022-07-29 01:08:43.175 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:08:43.285 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45
+2022-07-29 01:08:50.669 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/test/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:08:50.811 | INFO     | __main__:main:83 - Model Summary: Params: 4.86M, Gflops: 6.24
+2022-07-29 01:09:20.168 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/original/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:09:20.277 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45
+2022-07-29 01:34:34.237 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/test/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:34:34.348 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (43413), thread 'MainThread' (140592607233856):
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+           │         └ <code object <module> at 0x7fde444fdb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+           └ <function _run_code at 0x7fde444613a0>
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'tools', '__loader__': <_frozen_importlib_external.SourceFileLoader ...
+         └ <code object <module> at 0x7fde444fdb30, file "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 5>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 102, in <module>
+    launch(
+    └ <function launch at 0x7fddb3cc0ca0>
+
+> File "/workspace/tensorrt/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fddb4674ee0>
+
+  File "/workspace/tensorrt/YOLOX/tools/model_visual.py", line 83, in main
+    logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
+    │      │                               │              │      │   └ (416, 416)
+    │      │                               │              │      └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │      │                               │              └ YOLOX(
+    │      │                               │                  (backbone): YOLOPAFPN(
+    │      │                               │                    (backbone): CSPDarknet(
+    │      │                               │                      (stem): Focus(
+    │      │                               │                        (conv): BaseConv(
+    │      │                               │                          (conv): ...
+    │      │                               └ <function get_model_info at 0x7fddb464caf0>
+    │      └ <function Logger.info at 0x7fde43b54790>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stderr>), (id=2, level=10, sink='./YOLOX_outputs/yolox_voc_tiny/val_log.txt')]>
+
+  File "/workspace/tensorrt/YOLOX/yolox/utils/model_utils.py", line 28, in get_model_info
+    flops, params = profile(deepcopy(model), inputs=(img,), verbose=False)
+                    │       │        │               └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],
+                    │       │        │                           [0., 0., 0.,  ..., 0., 0., 0.],...
+                    │       │        └ YOLOX(
+                    │       │            (backbone): YOLOPAFPN(
+                    │       │              (backbone): CSPDarknet(
+                    │       │                (stem): Focus(
+                    │       │                  (conv): BaseConv(
+                    │       │                    (conv): ...
+                    │       └ <function deepcopy at 0x7fde43c868b0>
+                    └ <function profile at 0x7fddd03208b0>
+
+  File "/usr/local/lib/python3.8/dist-packages/thop-0.1.1.post2207130030-py3.8.egg/thop/profile.py", line 212, in profile
+    model(*inputs)
+    │      └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.],
+    │                  [0., 0., 0.,  ..., 0., 0., 0.]...
+    └ YOLOX(
+        (backbone): YOLOPAFPN(
+          (backbone): CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/test/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],
+               │                         [0., 0., 0.,  ..., 0., 0., 0.],...
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.],
+           │                         [0., 0., 0.,  ..., 0., 0., 0.]...
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/test/yolo_pafpn.py", line 115, in forward
+    pan_out0 = self.C3_n4(p_out0)  # 1024->1024/32
+               │          └ tensor([[[[0., 0.],
+               │                      [0., 0.]],
+               │            
+               │                     [[0., 0.],
+               │                      [0., 0.]],
+               │            
+               │                     [[0., 0.],
+               │                      [0., 0.]],
+               │            ...
+               └ YOLOPAFPN(
+                   (backbone): CSPDarknet(
+                     (stem): Focus(
+                       (conv): BaseConv(
+                         (conv): Conv2d(12, 24, kernel_size=(3...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method CSPLayer.forward of CSPLayer(
+               (conv1): BaseConv(
+                 (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, ...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/test/network_blocks.py", line 184, in forward
+    x_1 = self.conv1(x)
+          │          └ tensor([[[[0., 0.],
+          │                      [0., 0.]],
+          │            
+          │                     [[0., 0.],
+          │                      [0., 0.]],
+          │            
+          │                     [[0., 0.],
+          │                      [0., 0.]],
+          │            ...
+          └ CSPLayer(
+              (conv1): BaseConv(
+                (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNor...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ (tensor([[[[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],
+           │               
+           │                        [[0., 0.],
+           │                         [0., 0.]],...
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn):...
+
+  File "/workspace/tensorrt/YOLOX/exps/default/custom/test/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ tensor([[[[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           
+           │        │       │                    [[0., 0.],
+           │        │       │                     [0., 0.]],
+           │        │       │           ...
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(192, eps=0.001, momen...
+           │        └ BaseConv(
+           │            (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(192, eps=0.001, momen...
+           └ BaseConv(
+               (conv): Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(192, eps=0.001, momen...
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/module.py", line 1148, in _call_impl
+    result = forward_call(*input, **kwargs)
+             │             │        └ {}
+             │             └ (tensor([[[[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],
+             │               
+             │                        [[0., 0.],
+             │                         [0., 0.]],...
+             └ <bound method Conv2d.forward of Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)>
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 457, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           │    │             │      │            └ Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             │      └ Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │    │             └ tensor([[[[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               
+           │    │                        [[0., 0.],
+           │    │                         [0., 0.]],
+           │    │               ...
+           │    └ <function Conv2d._conv_forward at 0x7fddb4430820>
+           └ Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+
+  File "/usr/local/lib/python3.8/dist-packages/torch/nn/modules/conv.py", line 453, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+           │ │      │      │       │     │    └ (1, 1)
+           │ │      │      │       │     └ Conv2d(345, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │ │      │      │       └ None
+           │ │      │      └ Parameter containing:
+           │ │      │        tensor([[[[ 4.2608e-02]],
+           │ │      │        
+           │ │      │                 [[ 2.0625e-02]],
+           │ │      │        
+           │ │      │                 [[-5.2397e-02]],
+           │ │      │        
+           │ │      │                 ...,
+           │ │      │        
+           │ │      │               ...
+           │ │      └ tensor([[[[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        
+           │ │                 [[0., 0.],
+           │ │                  [0., 0.]],
+           │ │        ...
+           │ └ <built-in method conv2d of type object at 0x7fde234289c0>
+           └ <module 'torch.nn.functional' from '/usr/local/lib/python3.8/dist-packages/torch/nn/functional.py'>
+
+RuntimeError: Given groups=1, weight of size [192, 345, 1, 1], expected input[1, 344, 2, 2] to have 345 channels, but got 344 channels instead
+2022-07-29 01:35:31.915 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='custom/test/yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-07-29 01:35:32.020 | INFO     | __main__:main:83 - Model Summary: Params: 4.63M, Gflops: 6.07
+2022-08-04 23:26:30.498 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-04 23:26:32.732 | INFO     | __main__:main:83 - Model Summary: Params: 4.63M, Gflops: 6.07
+2022-08-04 23:27:29.737 | INFO     | __main__:main:77 - Args: Namespace(devices=None, exp_file=None, experiment_name='yolox_voc_tiny', name='yolox_voc_tiny', opts=[], seed=None, tsize=None)
+2022-08-04 23:27:29.886 | INFO     | __main__:main:83 - Model Summary: Params: 5.04M, Gflops: 6.45

@@ -106,6 +106,7 @@ class Exp(BaseExp):
         self.test_conf = 0.01
         # nms threshold
         self.nmsthre = 0.65
+        self.seed = 2022
 
     def get_model(self):
         from yolox.models import YOLOX, YOLOPAFPN, YOLOXHead

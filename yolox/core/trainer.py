@@ -59,6 +59,7 @@ class Trainer:
         # metric record
         self.meter = MeterBuffer(window_size=exp.print_interval)
         self.file_name = os.path.join(exp.output_dir, args.experiment_name)
+        
 
         if self.rank == 0:
             os.makedirs(self.file_name, exist_ok=True)
@@ -220,6 +221,7 @@ class Trainer:
         if (self.epoch + 1) % self.exp.eval_interval == 0:
             all_reduce_norm(self.model)
             self.evaluate_and_save_model()
+            
 
     def before_iter(self):
         pass
@@ -349,6 +351,9 @@ class Trainer:
         self.save_ckpt("last_epoch", update_best_ckpt, ap=ap50_95)
         if self.save_history_ckpt:
             self.save_ckpt(f"epoch_{self.epoch + 1}", ap=ap50_95)
+        logger.info(
+            "Training of experiment is doing and the best AP is {:.2f}".format(self.best_ap * 100)
+        )
 
     def save_ckpt(self, ckpt_name, update_best_ckpt=False, ap=None):
         if self.rank == 0:
